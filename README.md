@@ -1,4 +1,4 @@
-﻿# Enhanced-anomaly-detection-in-pandemic-surveillance-videos
+## Enhanced-anomaly-detection-in-pandemic-surveillance-videos
  
 [![DOI](https://img.shields.io/badge/DOI-10.1109/ACCESS.2024.3480205-blue)](https://doi.org/10.1109/ACCESS.2024.3480205)  
 
@@ -26,7 +26,7 @@ model’s performance was comprehensively evaluated using metrics such as F1 sco
 and recall. To validate the effectiveness of the proposed model, it was benchmarked against state-of-theart methods. This study presents an innovative deep-learning methodology for the identification of violent
 scenes in cartoon movies. Its potential applications encompass a wide range, including safeguarding children
 from inappropriate content.
-![Framework](Images/fig1.png)
+![Framework](images/fig1.png)
 
 ## Prerequisites
 - Python 3.9
@@ -58,7 +58,7 @@ conda env create -f environment.yml
 ```
 
 ## OurDataset 
- The authors did an extensive search on YouTube to collect a variety of cartoon movies. Our approach to collecting data involved targeted keyword searches and systematic browsing to ensure a comprehensive and diverse dataset. We conducted random browsing to identify a broader range of cartoon content. Specific keywords, such as ‘‘cartoon explosions,’’ ‘‘cartoon fights,’’ ‘‘cartoon gunshots,’’ and ‘‘cartoon bloodshed’’ were used for the cartoon movie search. In addition, this dual approach allowed us to capture a wide variety of violent and non-violent scenes, enhancing the robustness and diversity of our dataset. From these movies, we manually extracted scenes for five distinct categories: Explosion (49 scenes), Bloodshed (46 scenes), Fight (51 scenes), Gunshot (43 scenes), and Normal (53 scenes). Each scene was segmented into shots, which are continuous sequences of frames captured by a single camera from a single view. The duration of these shots ranged from 1 to 5 seconds. The mechanism of frame extraction is illustrated in Fig. 2. The number of keyframes extracted from each shot is not fixed and is contingent upon the dissimilarity between the general frames (all frames excluding the reference frame) and the reference frame (typically the first frame of each shot). We set a threshold value for extracting the keyframes: from 1-3 second shots, 15 key frames per shot are extracted, while from 4-5 second shots, 30 key frames per shot are extracted. For validation, the dataset was split into training and testing sets as shown in Table 2. The training set includes 242 scenes and 6,819 keyframes, while the testing set includes 242 scenes and 2,271 keyframes. This split ensures a balanced representation of each category across both sets.
+ The authors did an extensive search on YouTube to collect a variety of cartoon movies. Our approach to collecting data involved targeted keyword searches and systematic browsing to ensure a comprehensive and diverse dataset. We conducted random browsing to identify a broader range of cartoon content. Specific keywords, such as ‘‘cartoon explosions,’’ ‘‘cartoon fights,’’ ‘‘cartoon gunshots,’’ and ‘‘cartoon bloodshed’’ were used for the cartoon movie search. In addition, this dual approach allowed us to capture a wide variety of violent and non-violent scenes, enhancing the robustness and diversity of our dataset. From these movies, we manually extracted scenes for five distinct categories: Explosion (49 scenes), Bloodshed (46 scenes), Fight (51 scenes), Gunshot (43 scenes), and Normal (53 scenes). Each scene was segmented into shots, which are continuous sequences of frames captured by a single camera from a single view. The duration of these shots ranged from 1 to 5 seconds. The mechanism of frame extraction is illustrated. The number of keyframes extracted from each shot is not fixed and is contingent upon the dissimilarity between the general frames (all frames excluding the reference frame) and the reference frame (typically the first frame of each shot). We set a threshold value for extracting the keyframes: from 1-3 second shots, 15 key frames per shot are extracted, while from 4-5 second shots, 30 key frames per shot are extracted. For validation, the dataset was split into training and testing sets. The training set includes 242 scenes and 6,819 keyframes, while the testing set includes 242 scenes and 2,271 keyframes. This split ensures a balanced representation of each category across both sets.
 
 You can download OurDataset using the download link provided below.
 
@@ -88,7 +88,7 @@ OurDataset
         └── Class 05
 ```
 
-![Framework](Images/fig3.png)
+![Framework](images/fig2.png)
 
 ## Training
 
@@ -109,7 +109,7 @@ testing_model.ipynb
 Visualization Results of the proposed method. Overall score of precision, recall and F1-Score for each
 experiment.
 
-![Framework](Images/fig5.png)
+![Framework](images/fig3.png)
 
 ## Citation
 If you find this code useful, please cite our paper:
