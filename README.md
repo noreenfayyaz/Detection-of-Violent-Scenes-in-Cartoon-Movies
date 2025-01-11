@@ -1,18 +1,31 @@
 ﻿# Enhanced-anomaly-detection-in-pandemic-surveillance-videos
  
-[![DOI](https://img.shields.io/badge/DOI-10.1109/ACCESS.2024.3488797-blue)](https://doi.org/10.1109/ACCESS.2024.3488797)  
+[![DOI](https://img.shields.io/badge/DOI-10.1109/ACCESS.2024.3480205-blue)](https://doi.org/10.1109/ACCESS.2024.3480205)  
 
 
-This repository is the ```official open-source``` of [Enhanced anomaly detection in
-pandemic surveillance videos: An attention approach with EfficientNet-B0 and CBAM integration](https://doi.org/10.1109/ACCESS.2024.3488797)
-by SAREER UL AMIN, MUHAMMAD SIBTAIN ABBAS, BUMSOO KIM, YONGHOON JUNG,
-AND SANGHYUN SEO
+This repository is the ```official open-source``` of [Detection of Violent Scenes in Cartoon Movies
+Using a Deep Learning Approach](https://doi.org/10.1109/ACCESS.2024.3480205)
+by NOREEN FAYYAZ KHAN, SAREER UL AMIN, ZAHOOR JAN, AND CHANGHUI YAN
 
 ## Description
-We present a novel system for anomaly detection in surveillance videos, specifically focusing
-on identifying instances where individuals deviate from public health guidelines during the pandemic. These anomalies encompassed behaviours like the absence of face masks, incorrect mask usage, coughing, nose-picking, sneezing, spitting, and yawning. Monitoring such anomalies manually was challenging and prone to errors, necessitating automated solutions. To address this, a multi-attention-based deep learning system was employed, utilizing the EfficientNet-B0 architecture. EfficientNet-B0, featuring the Mobile Inverted Bottleneck Convolution (MBConv) block with Squeeze-and-Excitation (SE) modules, emphasizes informative channel characteristics while disregarding irrelevant ones. However, this approach neglected
-crucial spatial information necessary for visual recognition tasks. To improve this, the Convolutional Block Attention Module (CBAM) was integrated into EfficientNet-B0 to improve feature extraction. The baseline EfficientNet-B0 model’s SE module was replaced with the CBAM module within each MBConv module to retain spatial information related to anomaly activities. Additionally, the CBAM module, when embedded after the second convolutional layer, was observed to significantly enhance the classification ability of the model across different anomaly classes, resulting in a significant accuracy boost from 87 to 96%. In conclusion, we demonstrated the efficacy of the CBAM module in refining feature extraction and improving
-the classification performance of the proposed method, showcasing its potential for robust anomaly detection in surveillance videos.
+Cartoon movies are a primary source of entertainment for children. However, concerns arise
+when these movies inadvertently expose children to violent scenes. This paper addresses the challenge of
+detecting subtle instances of violence within cartoon movies. The main difficulty in this task is the sequential
+nature of movies, where a sequence of frames must be considered in their given order. Existing methods have
+not effectively addressed the issue. In this study, we tackled this challenge by employing a sequential model.
+The research comprises three key steps. Initially, a histogram technique was implemented to select key frames
+from the video sequences. Subsequently, a Convolutional Neural Network (CNN) was utilized to extract
+prominent features from these selected key frames. In the third phase, the acquired features were utilized
+to train a sequential model using sequence-based learning. The model was then refined through transfer
+learning, using a dataset containing scenes devoid of violence, as well as scenes depicting varying forms
+of violence, including bloodshed, fights, gunshots, and explosions. A significant contribution of this study
+is the meticulous categorization of violent scenes into four distinct types, allowing for further investigation
+into the diverse effects of different violence categories. Furthermore, the study introduces an innovative
+approach by integrating a dense layer into the sequential model to enhance final classification. The trained
+model’s performance was comprehensively evaluated using metrics such as F1 score, precision, accuracy,
+and recall. To validate the effectiveness of the proposed model, it was benchmarked against state-of-theart methods. This study presents an innovative deep-learning methodology for the identification of violent
+scenes in cartoon movies. Its potential applications encompass a wide range, including safeguarding children
+from inappropriate content.
 ![Framework](Images/fig1.png)
 
 ## Prerequisites
@@ -35,7 +48,7 @@ This method was tested in:
 ## Usage
 Clone the repository:
 ```bash
-git clone https://github.com/sareerulamin/Enhanced-anomaly-detection-in-pandemic-surveillance-videos.git
+git clone https://github.com/noreenfayyaz/Detection-of-Violent-Scenes-in-Cartoon-Movies.git
 ```
 
 ## Installation 
@@ -45,16 +58,13 @@ conda env create -f environment.yml
 ```
 
 ## OurDataset 
-The Canon EOS 600D is a versatile DSLR camera that offers a range of video features for research purposes. The camera provides Full high-dimensional (HD) 1080p video recording
-at 30 frames per second, which is ideal for capturing detailed footage. It also offers manual control over exposure, focus, and audio levels, which allows for greater control and precision
-in video recordings. Additionally, the camera has a built-in microphone and a jack for an external microphone, which is useful for capturing high-quality audio. One of the most significant video features of the Canon EOS 600D is its movie crop mode. This feature allows researchers to zoom in on subjects and capture footage with greater detail, even from a distance. The camera also has a video snapshot mode, which is useful for capturing short clips that can be combined into a longer video. Finally, the vari-angle LCD screen provides a clear view of the scene from different angles, making it easier to capture footage from unique perspectives. Overall, the Canon EOS 600D is an excellent camera for research
-purposes, offering a range of video features and manual controls for greater precision and control in video recordings. However, in this study, the Canon EOS 600D camera has been used for capturing anomaly activity in indoor environments. We made an anomaly detection dataset for eight different types of anomaly activities, including coughing, face mask, no mask, nose picking, sneezing, spitting, wrong mask, and yawning. Each anomaly activity consists of 18 videos of approximately one-minute duration. In this study, the face mask class is considered a normal activity, while the rest of the classes are considered anomalous activity. 
+ The authors did an extensive search on YouTube to collect a variety of cartoon movies. Our approach to collecting data involved targeted keyword searches and systematic browsing to ensure a comprehensive and diverse dataset. We conducted random browsing to identify a broader range of cartoon content. Specific keywords, such as ‘‘cartoon explosions,’’ ‘‘cartoon fights,’’ ‘‘cartoon gunshots,’’ and ‘‘cartoon bloodshed’’ were used for the cartoon movie search. In addition, this dual approach allowed us to capture a wide variety of violent and non-violent scenes, enhancing the robustness and diversity of our dataset. From these movies, we manually extracted scenes for five distinct categories: Explosion (49 scenes), Bloodshed (46 scenes), Fight (51 scenes), Gunshot (43 scenes), and Normal (53 scenes). Each scene was segmented into shots, which are continuous sequences of frames captured by a single camera from a single view. The duration of these shots ranged from 1 to 5 seconds. The mechanism of frame extraction is illustrated in Fig. 2. The number of keyframes extracted from each shot is not fixed and is contingent upon the dissimilarity between the general frames (all frames excluding the reference frame) and the reference frame (typically the first frame of each shot). We set a threshold value for extracting the keyframes: from 1-3 second shots, 15 key frames per shot are extracted, while from 4-5 second shots, 30 key frames per shot are extracted. For validation, the dataset was split into training and testing sets as shown in Table 2. The training set includes 242 scenes and 6,819 keyframes, while the testing set includes 242 scenes and 2,271 keyframes. This split ensures a balanced representation of each category across both sets.
 
 You can download OurDataset using the download link provided below.
 
 |  File Name |  Download   |   
 |:-----------|:-----------|
-|OurDataset.zip| [Google Drive](https://drive.google.com/file/d1V_9reWS_hTx1wPXYqKIAHQwpklM1LyaV/view?usp=sharing)|
+|OurDataset.zip| [Google Drive](https://drive.google.com/drive/folders/1G4GK1Cw3jmZ5335bO0IJCwf754TD-xjz?usp=sharing)|
 
 ```
 OurDataset
@@ -66,7 +76,7 @@ OurDataset
             └── n.jpg
         ├── Class 02
         ├── ...
-        └── Class 08
+        └── Class 05
 └── training
     └── frames
         ├── Class 01
@@ -75,7 +85,7 @@ OurDataset
             └── n.jpg
         ├── Class 02
         ├── ...
-        └── Class 08
+        └── Class 05
 ```
 
 ![Framework](Images/fig3.png)
@@ -96,31 +106,33 @@ To test and evaluate the model, use the following script:
 testing_model.ipynb 
 ```
 ## Qualitative Evaluation
-Visualization Results of Gradient-weighted Class Activation Mapping (Grad-CAM). We compare the proposed approach’s (EfficientNet-B0 + CBAM) visual results with those of the baseline (EfficientNet-B0), Vision Transformer, and Swin Transformer. The last Conv layer outputs are used to compute the grad-CAM visualization. Every input image has the ground truth presented at the top.
+Visualization Results of the proposed method. Overall score of precision, recall and F1-Score for each
+experiment.
 
 ![Framework](Images/fig5.png)
 
 ## Citation
 If you find this code useful, please cite our paper:
 ```bash
-@ARTICLE{10740272,
-  author={Ul Amin, Sareer and Sibtain Abbas, Muhammad and Kim, Bumsoo and Jung, Yonghoon and Seo, Sanghyun},
+@ARTICLE{10716639,
+  author={Khan, Noreen Fayyaz and Amin, Sareer Ul and Jan, Zahoor and Yan, Changhui},
   journal={IEEE Access}, 
-  title={Enhanced Anomaly Detection in Pandemic Surveillance Videos: An Attention Approach With EfficientNet-B0 and CBAM Integration}, 
+  title={Detection of Violent Scenes in Cartoon Movies Using a Deep Learning Approach}, 
   year={2024},
   volume={12},
   number={},
-  pages={162697-162712},
-  keywords={Anomaly detection;Videos;Surveillance;COVID-19;Diseases;Social factors;Human factors;Computer viruses;Accuracy;Pandemics;Computer vision;Anomaly detection;video surveillance;computer vision;attention method;intelligent surveillance system},
-  doi={10.1109/ACCESS.2024.3488797}}
+  pages={154080-154091},
+  keywords={Motion pictures;Feature extraction;Visualization;Deep learning;Spatiotemporal phenomena;Explosions;Accuracy;Media;Convolutional neural networks;Computer science;Videos;Classification algorithms;Violence classification;deep learning;animated video classification;sequence learning;shot segmentation},
+  doi={10.1109/ACCESS.2024.3480205}}
+
 
 ```
 
 ## Acknowledgments
-This research was supported by the MSIT (Ministry of Science and ICT), Korea, under the ITRC (Information Technology Research Centre) support program (IITP-2024-RS-2024-00438056), supervised by the IITP (Institute for Information & Communications Technology Planning & Evaluation).
+Internal funding has been secured to support this research article, demonstrating the commitment of their institution to advancing knowledge within their academic community. This work used resources of the Center for Computationally Assisted Science and Technology (CCAST) at North Dakota State University, which were made possible in part by NSF MRI Award No. 2019077.
 
 ## Contact
 ```
-sareerulamin320@gmail.com
+noreen.fayyaz@fu.edu.pk
 
 ```
