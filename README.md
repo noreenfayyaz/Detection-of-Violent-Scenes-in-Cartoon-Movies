@@ -1,4 +1,4 @@
-## Enhanced-anomaly-detection-in-pandemic-surveillance-videos
+## Detection of Violent Scenes in Cartoon Movies Using a Deep Learning Approach
  
 [![DOI](https://img.shields.io/badge/DOI-10.1109/ACCESS.2024.3480205-blue)](https://doi.org/10.1109/ACCESS.2024.3480205)  
 
